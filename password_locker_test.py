@@ -68,7 +68,12 @@ class TestPassword(unittest.TestCase):
 
         self.assertEqual(Password_Locker.generate_credentials(self.new_password_locker),pyperclip.paste())
 
+    def test_set_password_length(self):
+        '''
+        test to set the password length
+        '''
 
+        self.assertEqual(len(Password_Locker.set_password_length(self,10)),10)
 
 if __name__ == "__main__":
      unittest.main()   
