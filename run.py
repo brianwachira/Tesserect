@@ -77,6 +77,20 @@ def main():
                 print(f"Welcome {username}")
             else:
                 print("Account already exists")
+
+        elif(choice == 'ac'):
+                print("Enter the account you wish to save")
+                account_name = input()
+                print("Enter the username")
+                username = input()
+                print("Enter the password")
+                password = input()
+                if(add_credentials(instance,account_name,username,password)):
+                    print("Succesful!")
+                else:
+                    print("Your account does not exist")
+        
+    
         else:
             print("Bye")
             break
