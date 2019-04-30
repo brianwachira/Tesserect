@@ -1,4 +1,4 @@
-class Password_locker:
+class Password_Locker:
 
     """
     class that generates new instance of password locker
