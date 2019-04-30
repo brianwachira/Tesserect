@@ -16,3 +16,13 @@ class Password_Locker:
         self.username = username
         self.password = password
 
+    def create_account(self):
+        
+        try:
+            with open(self.username+"txt","r")as handle:
+                return False
+
+        except FileNotFoundError:
+             with open(self.username+"txt","w") as handle:
+                handle.write(self.password)
+                return True
