@@ -89,7 +89,7 @@ class Password_Locker:
 
             return data
 
-    def generate_password(self):
+    def generate_password(self,length=8):
         '''
         Function that generates passwords
 
@@ -98,7 +98,7 @@ class Password_Locker:
         '''
 
         randomString = uuid.uuid4().hex #get a random string in a UUID format
-        randomString = randomString[0:8]
+        randomString = randomString[0:length]
 
         return randomString
 
