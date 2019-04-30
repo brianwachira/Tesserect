@@ -30,7 +30,7 @@ class TestPassword(unittest.TestCase):
         '''
         password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
 
-        self.assertEqual(Password_Locker.create_account(password_locker_test),True)
+        self.assertTrue(Password_Locker.create_account(password_locker_test))
 
     def test_login(self):
         '''
@@ -38,7 +38,7 @@ class TestPassword(unittest.TestCase):
         '''
         password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
 
-        self.assertEqual(Password_Locker.login(password_locker_test),True)
+        self.assertTrue(Password_Locker.login(password_locker_test))
 
     def test_add_credentials(self):
         '''
@@ -46,7 +46,7 @@ class TestPassword(unittest.TestCase):
         '''
         password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
 
-        self.assertEqual(Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea"),True)    
+        self.assertTrue(Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea"))    
 
     def test_generate_credentials(self):
         '''
