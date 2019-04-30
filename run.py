@@ -94,6 +94,11 @@ def main():
             credentials = generate_credentials(instance)
             print("The credentials are :\n")
             print(f"{credentials}")
+
+        elif(choice == 'gp'):
+            password = generate_password(instance)
+            print("Kindly copy the password below :")
+            print(f"{password}")
     
         else:
             print("Bye")
