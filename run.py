@@ -55,8 +55,9 @@ def main():
         choice = input()
 
         if(choice == 'li'):
-            print("Enter your username and password")
+            print("Enter your username")
             username = input().lower()
+            print("Enter password")
             password = input()
             instance = initialize_password_locker(username,password)
             if(login(instance)):
@@ -65,7 +66,17 @@ def main():
                 print("It seems your account does not exist")
 
 
-        
+        elif(choice == 'ca'):
+            print("Enter your username")
+            username = input().lower()
+            print("Enter password")
+            password = input()
+            instance = initialize_password_locker(username,password)
+            if(create_account(instance)):
+                print("Account creation succesful\n")
+                print(f"Welcome {username}")
+            else:
+                print("Account already exists")
         else:
             print("Bye")
             break
