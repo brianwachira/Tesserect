@@ -23,3 +23,7 @@ class TestPassword(unittest.TestCase):
 
         self.assertEqual(self.new_password_locker.username,"password_locker_test")
         self.assertEqual(self.new_password_locker.password,"passwordlocker123")
+
+
+if __name__ == "__main__":
+     unittest.main()   
