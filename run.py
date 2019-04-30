@@ -44,3 +44,15 @@ def set_password_length(password_locker,length):
     Function that generates a password based on the user's length of choice
     '''
     return Password_Locker.set_password_length(password_locker,length)
+
+def main():
+    print("Hi there\n")
+    print("WHat would you like to do")
+    print('\n')
+
+    while True:
+        print("Use these short codes\n li - Log in, ca - Create an account, ac - Add credentials, gc - Generate credentials, gp - Generate passwords, gsp - Generate password with a set length")
+
+
+if __name__ == '__main__':
+    main()
