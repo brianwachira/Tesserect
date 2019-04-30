@@ -103,7 +103,7 @@ class Password_Locker:
         '''
 
         randomString = uuid.uuid4().hex #get a random string in a UUID format
-        randomString = randomString[0:length]
+        randomString = randomString[0:int(length)]
 
         return randomString
 
