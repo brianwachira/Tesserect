@@ -20,3 +20,9 @@ def login(password_locker):
     Function to log in user
     '''
     return Password_Locker.login(password_locker)
+
+def add_credentials(password_locker,account_name,account_username,account_password):
+    '''
+    Function that adds users credentials
+    '''
+    return Password_Locker.add_credentials(password_locker,account_name,account_username,account_password)
