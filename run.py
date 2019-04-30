@@ -90,6 +90,10 @@ def main():
                 else:
                     print("Your account does not exist")
         
+        elif(choice == 'gc'):
+            credentials = generate_credentials(instance)
+            print("The credentials are :\n")
+            print(f"{credentials}")
     
         else:
             print("Bye")
