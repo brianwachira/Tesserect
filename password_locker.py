@@ -1,4 +1,5 @@
 import uuid #module for generating random strings
+import pyperclip
 class Password_Locker:
 
     """
@@ -100,3 +101,11 @@ class Password_Locker:
         randomString = randomString[0:8]
 
         return randomString
+
+    def copy_credentials(self):
+        '''
+        Function that copies credentials on clipboard using pyperclip module
+        '''
+        with open(self.credential_filename,"r") as handle:
+            data = handle.read()
+            pyperclip.copy(data)
