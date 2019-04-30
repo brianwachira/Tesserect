@@ -1,5 +1,6 @@
-import unittest #IMporting the unittest module
+import unittest #Importing the unittest module
 from password_locker import Password_Locker #Importing password class
+import uuid #module for generating random strings
 
 class TestPassword(unittest.TestCase):
 
@@ -58,6 +59,14 @@ class TestPassword(unittest.TestCase):
         with open(password_locker_test.credential_filename,"r") as handle:
             data = handle.read()
         self.assertEqual(Password_Locker.generate_credentials(password_locker_test),data)
+
+    def test_generate_password(self):
+        '''
+        test to generate passwords
+        '''
+        test_string = uuid.uuid4().hex
+        test_string = test_string[0:8]
+        self.assertNotEqual(Password_Locker.generate_password(self.new_password_locker),test_string)
 
 if __name__ == "__main__":
      unittest.main()   
