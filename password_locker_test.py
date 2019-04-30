@@ -32,7 +32,13 @@ class TestPassword(unittest.TestCase):
 
         self.assertEqual(Password_Locker.create_account(password_locker_test),True)
 
-    
+    def test_add_credentials(self):
+        '''
+        test to confirm credentials are added
+        '''
+        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
+
+        self.assertEqual(Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea"),True)    
 
 if __name__ == "__main__":
      unittest.main()   
