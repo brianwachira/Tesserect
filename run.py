@@ -65,7 +65,6 @@ def main():
             else:
                 print("It seems your account does not exist")
 
-
         elif(choice == 'ca'):
             print("Enter your username")
             username = input().lower()
@@ -100,6 +99,13 @@ def main():
             print("Kindly copy the password below :")
             print(f"{password}")
     
+        elif(choice == 'gsp'):
+            print("Enter the length of a password you'd want")
+            length_of_password = input()
+            password = set_password_length(instance,length_of_password)
+            print("Kindly copy password to clipboard")
+            print(f"{password}")
+        
         else:
             print("Bye")
             break
