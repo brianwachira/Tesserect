@@ -1,7 +1,7 @@
 import unittest #Importing the unittest module
 from password_locker import Password_Locker #Importing password class
 import uuid #module for generating random strings
-
+import pyperclip
 class TestPassword(unittest.TestCase):
 
     '''
@@ -29,44 +29,46 @@ class TestPassword(unittest.TestCase):
         '''
         test to confirm account is created
         '''
-        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
-
-        self.assertTrue(Password_Locker.create_account(password_locker_test))
+        self.assertTrue(Password_Locker.create_account(self.new_password_locker))
 
     def test_login(self):
         '''
         test to confirm login
         '''
-        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
-
-        self.assertTrue(Password_Locker.login(password_locker_test))
+        self.assertTrue(Password_Locker.login(self.new_password_locker))
 
     def test_add_credentials(self):
         '''
         test to confirm credentials are added
         '''
-        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
-
-        self.assertTrue(Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea"))    
+        self.assertTrue(Password_Locker.add_credentials(self.new_password_locker,"facebook","wildcard","134dea"))    
 
     def test_generate_credentials(self):
         '''
         test to display credentials
         '''
-        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
-        Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea")
+        Password_Locker.add_credentials(self.new_password_locker,"facebook","wildcard","134dea")
 
-        with open(password_locker_test.credential_filename,"r") as handle:
+        with open(self.new_password_locker.credential_filename,"r") as handle:
             data = handle.read()
-        self.assertEqual(Password_Locker.generate_credentials(password_locker_test),data)
+        self.assertEqual(Password_Locker.generate_credentials(self.new_password_locker),data)
 
-    def test_generate_password(self):
+    def test_generate_password(self,length = 8):
         '''
         test to generate passwords
         '''
         test_string = uuid.uuid4().hex
-        test_string = test_string[0:8]
+        test_string = test_string[0:length]
         self.assertNotEqual(Password_Locker.generate_password(self.new_password_locker),test_string)
+
+    def test_copy_credentials(self):
+        '''
+        test to copy credentials on clipboard
+        '''
+
+        self.assertEqual(Password_Locker.generate_credentials(self.new_password_locker),pyperclip.paste())
+
+
 
 if __name__ == "__main__":
      unittest.main()   
