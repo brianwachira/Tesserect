@@ -16,6 +16,7 @@ class Password_Locker:
         self.username = username
         self.password = password
         self.filename = self.username+".txt"
+        self.credential_filename = "credentials_"+ self.filename
 
     def create_account(self):
         '''
@@ -57,14 +58,33 @@ class Password_Locker:
         
     def add_credentials(self,acc,acc_username,acc_password):
 
+            '''
+            Function that adds user's credentials
+
+            Raises:
+                    FileNotFoundError : If user has no account
+            '''
             data = "\n" + acc + ": " +"username " + acc_username + " " + " password "+ acc_password
             try:
-                handle =  open("credentials_"+ self.filename,"a") 
+                handle =  open(self.credential_filename,"a") 
                 handle.write(data)
                 handle.close()
                 return True
             except FileNotFoundError:
                     return False
 
+    def generate_credentials(self):
+
+        '''
+        Function that generates users credentials
+
+        Returns :
+                account_name : username password
+        '''
+        
+        with open(self.credential_filename,"r") as handle:
+            data = handle.read()
+
+            return data
 
                     
