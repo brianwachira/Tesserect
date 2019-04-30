@@ -1,3 +1,4 @@
+import uuid #module for generating random strings
 class Password_Locker:
 
     """
@@ -87,4 +88,15 @@ class Password_Locker:
 
             return data
 
-                    
+    def generate_password(self):
+        '''
+        Function that generates passwords
+
+        Returns :
+                random passwords
+        '''
+
+        randomString = uuid.uuid4().hex #get a random string in a UUID format
+        randomString = randomString[0:8]
+
+        return randomString
