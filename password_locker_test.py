@@ -32,6 +32,14 @@ class TestPassword(unittest.TestCase):
 
         self.assertEqual(Password_Locker.create_account(password_locker_test),True)
 
+    def test_login(self):
+        '''
+        test to confirm login
+        '''
+        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
+
+        self.assertEqual(Password_Locker.login(password_locker_test),True)
+
     def test_add_credentials(self):
         '''
         test to confirm credentials are added
