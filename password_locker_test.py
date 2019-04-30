@@ -48,5 +48,16 @@ class TestPassword(unittest.TestCase):
 
         self.assertEqual(Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea"),True)    
 
+    def test_generate_credentials(self):
+        '''
+        test to display credentials
+        '''
+        password_locker_test = Password_Locker("password_locker_test","passwordlocker123")
+        Password_Locker.add_credentials(password_locker_test,"facebook","wildcard","134dea")
+
+        with open(password_locker_test.credential_filename,"r") as handle:
+            data = handle.read()
+        self.assertEqual(Password_Locker.generate_credentials(password_locker_test),data)
+
 if __name__ == "__main__":
      unittest.main()   
