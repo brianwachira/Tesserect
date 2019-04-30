@@ -23,16 +23,20 @@ def login(password_locker):
 
 def add_credentials(password_locker,account_name,account_username,account_password):
     '''
-    Function that adds users credentials
+    Function that adds user's credentials
     '''
     return Password_Locker.add_credentials(password_locker,account_name,account_username,account_password)
 
 def generate_credentials(password_locker):
-    
-
+    '''
+    Function that generates user's credentials
+    '''
+    return Password_Locker.generate_credentials(password_locker)
 
 def generate_password(password_locker):
     '''
     Function that generates passwords
     '''
     return Password_Locker.generate_password(password_locker)
+
+    
