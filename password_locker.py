@@ -1,5 +1,6 @@
 import uuid #module for generating random strings
 import pyperclip
+from pathlib import Path
 class Password_Locker:
 
     """
@@ -27,8 +28,12 @@ class Password_Locker:
         Raises:
                 FileExistsError if the account exists
         '''
+        config = Path(self.filename)
         try:
-             with open(self.filename,"w+") as handle:
+            if config.is_file():
+                raise FileExistsError
+
+            with open(self.filename,"w") as handle:
                 handle.write(self.password)
                 return True
 
