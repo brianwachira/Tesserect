@@ -15,26 +15,56 @@ class Password_Locker:
         '''
         self.username = username
         self.password = password
-        self.filename = username+".txt"
+        self.filename = self.username+".txt"
 
     def create_account(self):
-        
-        try:
-            with open(self.username+".txt","r")as handle:
-                return False
+        '''
+        Function that reads username and password and creates a new account
 
-        except FileNotFoundError:
-             with open(self.username+".txt","w") as handle:
+        Raises:
+                FileExistsError if the account exists
+        '''
+        try:
+             with open(self.filename,"w+") as handle:
                 handle.write(self.password)
                 return True
 
+        except FileExistsError:
+                            return False
+
+    def login(self):
+        '''
+        Function that reads username and password and logs in
+        Return :
+                True - Login Succesful
+                False - Account Does not Exist
+        Raises  :
+                FileNotFoundError: If it cannot find the user
+        
+        '''
+
+        try :
+            with open(self.filename,"r") as handle:
+                data = handle.readline()
+                if data == self.password:
+                    return True
+                else:
+                    return False
+
+        except FileNotFoundError:
+            return False
+            
+        
     def add_credentials(self,acc,acc_username,acc_password):
 
+            data = "\n" + acc + ": " +"username " + acc_username + " " + " password "+ acc_password
             try:
-                with open(self.filename,"a") as handle:
-                    data = acc + ": " +"username " + acc_username + " " + " password "+ acc_password
-                    handle.write(data)
-                    return True
-            except:
+                handle =  open("credentials_"+ self.filename,"a") 
+                handle.write(data)
+                handle.close()
+                return True
+            except FileNotFoundError:
                     return False
+
+
                     
