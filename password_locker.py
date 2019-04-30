@@ -109,3 +109,9 @@ class Password_Locker:
         with open(self.credential_filename,"r") as handle:
             data = handle.read()
             pyperclip.copy(data)
+        
+    def set_password_length(self,length):
+        '''
+        Function that returns a password of a given length
+        '''
+        return Password_Locker.generate_password(self,length)
