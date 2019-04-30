@@ -39,4 +39,8 @@ def generate_password(password_locker):
     '''
     return Password_Locker.generate_password(password_locker)
 
-    
+def set_password_length(password_locker,length):
+    '''
+    Function that generates a password based on the user's length of choice
+    '''
+    return Password_Locker.set_password_length(password_locker,length)
