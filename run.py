@@ -26,3 +26,13 @@ def add_credentials(password_locker,account_name,account_username,account_passwo
     Function that adds users credentials
     '''
     return Password_Locker.add_credentials(password_locker,account_name,account_username,account_password)
+
+def generate_credentials(password_locker):
+    
+
+
+def generate_password(password_locker):
+    '''
+    Function that generates passwords
+    '''
+    return Password_Locker.generate_password(password_locker)
