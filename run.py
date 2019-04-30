@@ -12,3 +12,11 @@ def initialize_password_locker(username,password):
 def create_account(password_locker):
     '''
     Function to create user account
+    '''
+    return Password_Locker.create_account(password_locker)
+
+def login(password_locker):
+    '''
+    Function to log in user
+    '''
+    return Password_Locker.login(password_locker)
