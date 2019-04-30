@@ -47,11 +47,28 @@ def set_password_length(password_locker,length):
 
 def main():
     print("Hi there\n")
-    print("WHat would you like to do")
+    print("What would you like to do")
     print('\n')
-
+    instance = ""
     while True:
-        print("Use these short codes\n li - Log in, ca - Create an account, ac - Add credentials, gc - Generate credentials, gp - Generate passwords, gsp - Generate password with a set length")
+        print("Use these short codes\n li - Log in, ca - Create an account, ac - Add credentials, gc - Generate credentials, gp - Generate passwords, gsp - Generate password with a set length, ex - exit")
+        choice = input()
+
+        if(choice == 'li'):
+            print("Enter your username and password")
+            username = input().lower()
+            password = input()
+            instance = initialize_password_locker(username,password)
+            if(login(instance)):
+                print("Login succesful")
+            else:
+                print("It seems your account does not exist")
+
+
+        
+        else:
+            print("Bye")
+            break
 
 
 if __name__ == '__main__':
