@@ -2,7 +2,7 @@
 encase your usernames and password in wannabe unlimited space beyond 'stone' ages.
 #### BY Brian Wachira
 ## Description
-Password Locker is a terminal run python application that allows users to store details i.e. usernames and passwords of their various accounts.
+Tesserect is a terminal run python application that allows users to store details i.e. usernames and passwords of their various accounts.
 ## User Stories
 A user should be able to
 - To create an account and log in
